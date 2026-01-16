@@ -1,6 +1,5 @@
 from abc import ABC, abstractmethod
 
-# ---------- Abstraction ----------
 class Product(ABC):
     def __init__(self, name, price):
         self.name = name
@@ -12,25 +11,18 @@ class Product(ABC):
 
     def final_price(self):
         return self.price - self.calculate_discount()
-
-
-# ---------- Inheritance + Polymorphism ----------
 class Electronics(Product):
     def calculate_discount(self):
         return self.price * 0.10
-
 
 class Clothing(Product):
     def calculate_discount(self):
         return self.price * 0.15
 
-
 class Grocery(Product):
     def calculate_discount(self):
         return self.price * 0.05
-
-
-# ---------- Encapsulation ----------
+        
 class Shoppingcart:
     def __init__(self):
         self.items = []
@@ -63,10 +55,8 @@ class Shoppingcart:
             print(f"{item.name} → Rs {item.final_price():.2f}")
 
         print(f"\nTotal Bill: Rs {self.calculate_total():.2f}")
-        print("Thank you for shopping! 🎉")
-
-
-# ---------- Main ----------
+        print("Thank you for shopping!")
+        
 cart = Shoppingcart()
 
 p1 = Electronics("Mobile", 30000)
@@ -80,3 +70,4 @@ cart.add_product(p3)
 cart.remove_product("RiceBag")
 
 cart.checkout()
+
